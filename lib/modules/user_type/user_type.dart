@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:referola_customer/modules/sign_up/sign_up_screen.dart';
 
 class UserType extends StatefulWidget {
   UserType({super.key});
@@ -183,19 +185,24 @@ class _UserTypeState extends State<UserType> {
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: screenWidth * 0.15),
-                    child: Container(
-                      height: screenHeight * 0.060,
-                      width: screenWidth,
-                      decoration: BoxDecoration(
-                        color: Color(0xff38A700),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Next",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(() => SignUpScreen());
+                      },
+                      child: Container(
+                        height: screenHeight * 0.060,
+                        width: screenWidth,
+                        decoration: BoxDecoration(
+                          color: Color(0xff38A700),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Next",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                            ),
                           ),
                         ),
                       ),
