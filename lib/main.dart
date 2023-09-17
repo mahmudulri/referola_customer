@@ -4,6 +4,8 @@ import 'package:referola_customer/draft.dart';
 import 'package:referola_customer/routes/app_routes.dart';
 import 'package:referola_customer/splash_screen.dart';
 
+import 'modules/home/newhome.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: NewHome(),
 
       // initialRoute: onboarding,
       // routes: myallroutes,
