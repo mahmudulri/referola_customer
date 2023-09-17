@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:referola_customer/modules/home/home_screen.dart';
 import 'package:referola_customer/utils/colors.dart';
 import 'package:referola_customer/widgets/otpbox.dart';
 
@@ -83,25 +85,30 @@ class VerifyNumberScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(
-                          width: 2,
-                          color: Color(0xff707070).withOpacity(0.25),
-                        ),
-                      ),
-                      child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: Text(
-                          "Resend Code",
-                          style: TextStyle(
-                            fontSize: screenWidth * 0.045,
-                            color: AppColors.splashbackground,
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(()=>HomeScreen());
+                    },
+                    child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          border: Border.all(
+                            width: 2,
+                            color: Color(0xff707070).withOpacity(0.25),
                           ),
                         ),
-                      )),
+                        child: Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          child: Text(
+                            "Resend Code",
+                            style: TextStyle(
+                              fontSize: screenWidth * 0.045,
+                              color: AppColors.splashbackground,
+                            ),
+                          ),
+                        )),
+                  ),
                 ],
               )
             ],
