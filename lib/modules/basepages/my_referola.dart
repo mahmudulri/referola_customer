@@ -13,19 +13,6 @@ class MyReferola extends StatefulWidget {
 }
 
 class _MyReferolaState extends State<MyReferola> {
-  bool isProductActive = true;
-  bool isFlyerActive = false;
-  bool isVideoActive = false;
-  bool isSurveyActive = false;
-  bool isJobsActive = false;
-
-  List catType = [
-    "Recommended",
-    "Popular",
-    "Resturants",
-    "Hotel",
-  ];
-
   CategoryButtonController categoryButtonController =
       Get.put(CategoryButtonController());
 
@@ -78,11 +65,17 @@ class _MyReferolaState extends State<MyReferola> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  referolaBox(),
+                  referolaBox(
+                    imageUrl: "assets/icons/save_campaign.png",
+                    btnName: "Save Campaign",
+                  ),
                   SizedBox(
                     width: 10,
                   ),
-                  referolaBox(),
+                  referolaBox(
+                    imageUrl: "assets/icons/rewards.png",
+                    btnName: "Rewards",
+                  ),
                 ],
               ),
               SizedBox(
@@ -91,11 +84,17 @@ class _MyReferolaState extends State<MyReferola> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  referolaBox(),
+                  referolaBox(
+                    imageUrl: "assets/icons/referal_stats.png",
+                    btnName: "Referals Stats",
+                  ),
                   SizedBox(
                     width: 10,
                   ),
-                  referolaBox(),
+                  referolaBox(
+                    imageUrl: "assets/icons/notifications.png",
+                    btnName: "Notifications",
+                  ),
                 ],
               ),
               SizedBox(
@@ -104,7 +103,10 @@ class _MyReferolaState extends State<MyReferola> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  referolaBox(),
+                  referolaBox(
+                    imageUrl: "assets/icons/settings.png",
+                    btnName: "Settings",
+                  ),
                 ],
               ),
             ],
@@ -116,8 +118,12 @@ class _MyReferolaState extends State<MyReferola> {
 }
 
 class referolaBox extends StatelessWidget {
-  const referolaBox({
+  String imageUrl;
+  String btnName;
+  referolaBox({
     super.key,
+    required this.imageUrl,
+    required this.btnName,
   });
 
   @override
@@ -138,6 +144,32 @@ class referolaBox extends StatelessWidget {
             spreadRadius: 2, // Spread radius of the shadow
           ),
         ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 3,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(imageUrl),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Text(btnName),
+            ),
+          ],
+        ),
       ),
     );
   }
