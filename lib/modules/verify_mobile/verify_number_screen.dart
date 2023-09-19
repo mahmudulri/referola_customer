@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:referola_customer/modules/base/baseview.dart';
+import 'package:referola_customer/modules/basepages/newhome.dart';
 import 'package:referola_customer/modules/home/home_screen.dart';
 import 'package:referola_customer/utils/colors.dart';
 import 'package:referola_customer/widgets/otpbox.dart';
@@ -87,7 +89,7 @@ class VerifyNumberScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.to(()=>HomeScreen());
+                      Get.to(() => BaseView());
                     },
                     child: Container(
                         decoration: BoxDecoration(
@@ -98,8 +100,8 @@ class VerifyNumberScreen extends StatelessWidget {
                           ),
                         ),
                         child: Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
                           child: Text(
                             "Resend Code",
                             style: TextStyle(

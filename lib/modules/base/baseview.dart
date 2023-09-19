@@ -38,47 +38,62 @@ class _BaseViewState extends State<BaseView> {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Color(0xffF4F6F5),
-        // statusBarIconBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.dark,
       ),
     );
 
     return Scaffold(
         body: pages[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
           currentIndex: selectedIndex,
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_outlined,
-                size: 30,
+              icon: Image.asset(
+                "assets/icons/bottom/homeactive.png",
+                color:
+                    selectedIndex == 0 ? Color(0xff00AC00) : Color(0xffBBBCBC),
+                height: 35,
+                width: 35,
               ),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search_rounded,
-                size: 30,
+              icon: Image.asset(
+                "assets/icons/bottom/referolainactive.png",
+                color:
+                    selectedIndex == 1 ? Color(0xff00AC00) : Color(0xffBBBCBC),
+                height: 35,
+                width: 35,
+                fit: BoxFit.fitWidth,
               ),
               label: 'My referola',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person_2_outlined,
-                size: 30,
+              icon: Image.asset(
+                "assets/icons/bottom/referalinactive.png",
+                color:
+                    selectedIndex == 2 ? Color(0xff00AC00) : Color(0xffBBBCBC),
+                height: 35,
+                width: 35,
+                fit: BoxFit.fitWidth,
               ),
               label: 'referrals',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person_2_outlined,
-                size: 30,
+              icon: Image.asset(
+                "assets/icons/bottom/walletinactive.png",
+                color:
+                    selectedIndex == 3 ? Color(0xff00AC00) : Color(0xffBBBCBC),
+                height: 35,
+                width: 35,
               ),
               label: 'wallet',
             ),
           ],
-          selectedItemColor: Colors.red,
-          unselectedItemColor: Colors.cyan,
+          selectedItemColor: Color(0xff00AC00),
+          unselectedItemColor: Color(0xffBBBCBC),
           onTap: (index) {
             setState(() {
               selectedIndex = index;
