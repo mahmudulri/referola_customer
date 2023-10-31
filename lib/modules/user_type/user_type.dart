@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:referola_customer/modules/sign_up/sign_up_screen.dart';
+import 'package:referola_customer/modules/customer_module/sign_up/sign_up_screen.dart';
+import 'package:referola_customer/routes/app_routes.dart';
+
+import '../merchant_module/merchant_signup.dart';
 
 class UserType extends StatefulWidget {
   UserType({super.key});
@@ -12,6 +15,7 @@ class UserType extends StatefulWidget {
 class _UserTypeState extends State<UserType> {
   bool isButton1Active = false;
   bool isButton2Active = true;
+  String signUpusrType = "customer";
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +67,8 @@ class _UserTypeState extends State<UserType> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
+                              signUpusrType = "Business";
+                              print(signUpusrType);
                               print(isButton1Active);
                               print(isButton2Active);
                               // isButton1Active = !isButton1Active;
@@ -122,6 +128,8 @@ class _UserTypeState extends State<UserType> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
+                              signUpusrType = "Customer";
+                              print(signUpusrType);
                               print(isButton1Active);
                               print(isButton2Active);
                               isButton1Active = false;
@@ -187,7 +195,12 @@ class _UserTypeState extends State<UserType> {
                         EdgeInsets.symmetric(horizontal: screenWidth * 0.15),
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(() => SignUpScreen());
+                        if (signUpusrType != "customer") {
+                          // Get.to(() => SignUpScreen());
+                          Get.to(() => Merchant_SignUp());
+                        } else {
+                          Get.to(() => Merchant_SignUp());
+                        }
                       },
                       child: Container(
                         height: screenHeight * 0.060,

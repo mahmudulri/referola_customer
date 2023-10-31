@@ -9,19 +9,24 @@ import 'package:referola_customer/modules/customer_module/basepages/referalls.da
 import 'package:referola_customer/modules/customer_module/basepages/wallet.dart';
 import 'package:referola_customer/modules/customer_module/basepages/newhome.dart';
 
-class BaseView extends StatefulWidget {
-  const BaseView({super.key});
+import 'base_pages/base_home.dart';
+import 'base_pages/base_my_referola.dart';
+import 'base_pages/campaigns_merchant.dart';
+import 'base_pages/wallet_merchant.dart';
+
+class BaseMerchant extends StatefulWidget {
+  const BaseMerchant({super.key});
 
   @override
-  State<BaseView> createState() => _BaseViewState();
+  State<BaseMerchant> createState() => _BaseMerchantState();
 }
 
-class _BaseViewState extends State<BaseView> {
+class _BaseMerchantState extends State<BaseMerchant> {
   List pages = [
-    NewHome(),
-    MyReferola(),
-    Referrals(),
-    Wallet(),
+    MerchantHome(),
+    BaseMyReferola(),
+    CampaignsMerchant(),
+    WalletMerchant(),
   ];
 
   int selectedIndex = 0;
@@ -72,14 +77,14 @@ class _BaseViewState extends State<BaseView> {
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
-                "assets/icons/bottom/referalinactive.png",
+                "assets/icons/bottom/campaigns_noselect.png",
                 color:
                     selectedIndex == 2 ? Color(0xff00AC00) : Color(0xffBBBCBC),
                 height: 35,
                 width: 35,
                 fit: BoxFit.fitWidth,
               ),
-              label: 'referrals',
+              label: 'Campaings',
             ),
             BottomNavigationBarItem(
               icon: Image.asset(

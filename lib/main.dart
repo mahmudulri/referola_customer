@@ -5,7 +5,7 @@ import 'package:referola_customer/modules/base/baseview.dart';
 import 'package:referola_customer/routes/app_routes.dart';
 import 'package:referola_customer/splash_screen.dart';
 
-import 'modules/basepages/newhome.dart';
+import 'modules/customer_module/basepages/newhome.dart';
 
 void main() {
   runApp(const MyApp());
